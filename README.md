@@ -8,7 +8,7 @@
 ## Installation
 
 ```sh
-pip install git+https://github.com/afaskar/CSVProfiler-W1.git
+pip install git+https://github.com/afaskar/CSVProfiler.git
 ```
 
 ## Run CLI
