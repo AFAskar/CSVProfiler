@@ -17,14 +17,14 @@ def infer_type(values: list[str]) -> str:
 
 
 # Return Column Names and Data as a List of Dictionaries
-def read_csv(file:Path) -> dict:
+def read_csv(file: Path) -> dict:
     output = {"column_names": [], "data": []}
     with open(file, "r", newline="", encoding="utf-8") as f:
         # get Colun Names from CSV Header
         reader = csv.DictReader(f)
         output["column_names"] = reader.fieldnames
         output["data"] = [row for row in reader]
-    output["source"]=file.name
+    output["source"] = file.name
     return output
 
 
@@ -32,11 +32,8 @@ def read_csv(file:Path) -> dict:
 def profiler(data: dict) -> dict:
 
     profiled_data = {
-        "source":data["source"],
-        "summary":{
-            "Row Count": 0,
-            "Columns":0
-        },
+        "source": data["source"],
+        "summary": {"Row Count": 0, "Columns": 0},
         "columns": {},
     }
     # Construct Columns schema and get data type of columns
@@ -54,14 +51,16 @@ def profiler(data: dict) -> dict:
         profiled_data["columns"][col] = {
             "type": type_of_col,
             "missing_values": 0,
-            "unique":len(unique_values),
+            "unique": len(unique_values),
             "top_value": dict(top_values),
         }
         # calculate max and min, mean and median
         if type_of_col == "Number" and col_values:
             profiled_data["columns"][col]["max"] = max(col_values)
             profiled_data["columns"][col]["min"] = min(col_values)
-            profiled_data["columns"][col]["mean"] = round(sum(col_values) / len(col_values), 2)
+            profiled_data["columns"][col]["mean"] = round(
+                sum(col_values) / len(col_values), 2
+            )
             profiled_data["columns"][col]["median"] = round(
                 sorted(col_values)[len(col_values) // 2], 2
             )
@@ -75,12 +74,6 @@ def profiler(data: dict) -> dict:
                 profiled_data["columns"][col]["missing_values"] += 1
 
     profiled_data["summary"]["Row Count"] = len(data["data"])
-    profiled_data["summary"]["Columns"]=len(profiled_data["columns"])
+    profiled_data["summary"]["Columns"] = len(profiled_data["columns"])
 
     return profiled_data
-
-
-
-def createJsonReport(data: dict):
-    text = json.dumps(data, indent=4)
-    return text
