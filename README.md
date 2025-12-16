@@ -15,6 +15,10 @@ pip install git+https://github.com/afaskar/CSVProfiler.git
 ## Run CLI
 
 ```sh
+csv-profiler data/data.csv -o report.json
+```
+
+```sh
 python -m csv_profiler data/data.csv -o report.json
 ```
 
