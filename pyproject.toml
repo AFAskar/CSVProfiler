@@ -1,7 +1,9 @@
 [project]
 name = "csv-profiler"
 version = "0.1.0"
-description = "Add your description here"
+description = "A tool to profile CSV files and generate reports."
+license="MIT"
+license-files = ["LICENSE"]
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
