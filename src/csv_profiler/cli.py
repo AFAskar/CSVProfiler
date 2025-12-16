@@ -1,5 +1,5 @@
-from profiler import read_csv, profiler, createJsonReport
-from mdwriter import createMD
+from .profiler import read_csv, profiler, createJsonReport
+from .mdwriter import createMD
 from pathlib import Path
 import typer
 import click
