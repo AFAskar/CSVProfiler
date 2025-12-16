@@ -11,4 +11,6 @@ wheels/
 
 # Virtual environments
 .venv
-*/Curriculum/*
+
+# Curriculum files
+Curriculum/
