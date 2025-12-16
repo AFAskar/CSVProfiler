@@ -1,5 +1,5 @@
-*.md
-*.json
+report.md
+report.json
 *.env
 # Python-generated files
 __pycache__/
