@@ -16,6 +16,22 @@ Profile a CSV file and generate a simple summary report per column.
 - A CLI built with Typer
 - A Gradio web UI
 
+## Run without installing (uvx)
+
+If you have Astral's `uv` installed, you can run the tool without installing it into your environment.
+
+CLI:
+
+```sh
+uvx git+https://github.com/afaskar/CSVProfiler.git cli data/data.csv
+```
+
+Web UI:
+
+```sh
+uvx git+https://github.com/afaskar/CSVProfiler.git csv-profiler web
+```
+
 ## Installation
 
 ```sh
