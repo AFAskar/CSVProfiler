@@ -17,20 +17,31 @@ pip install git+https://github.com/afaskar/CSVProfiler.git
 ![CLI Animation](docs/cli-demo.gif)
 
 ```sh
-csv-profiler data/data.csv -o report.json
+csv-profiler cli data/data.csv -o outputs -f json
 ```
 
 ```sh
-python -m csv_profiler data/data.csv -o report.json
+python -m csv_profiler cli data/data.csv -o outputs -f json
 ```
 
 or
 
 ```sh
-python -m csv_profiler.cli data.csv -o report.json
+python -m csv_profiler.cli cli data.csv -o outputs -f json
 ```
 
 ## run Gradio Gui
+
+```sh
+csv-profiler web
+```
+
+or
+
+```sh
+python -m csv_profiler web
+
+```
 
 ```sh
 python -m csv_profiler.webgui
