@@ -1,10 +1,20 @@
-# Project 1 - csv profiler
+# CSV Profiler
 
-- Profiles csv using the csv library
-- creates a report which has these metrics (Column Name , Type , Missing Values , Top Value , Non-empty Counts , Max , Min , Mean , Median , unique)
-- outputs the report as a json or markdown
-  - CLI infers output type through extension suffix
-- has both a CLI(typer) and a Web Gui(gradio)
+Profile a CSV file and generate a simple summary report per column.
+
+## What you get (per column)
+
+- Column name
+- Inferred type
+- Missing values + non-empty counts
+- Top (most frequent) value
+- Numeric stats (when applicable): min, max, mean, median
+- Unique count
+
+## The project includes:
+
+- A CLI built with Typer
+- A Gradio web UI
 
 ## Installation
 
@@ -12,41 +22,82 @@
 pip install git+https://github.com/afaskar/CSVProfiler.git
 ```
 
-## Run CLI
+For local development:
+
+```sh
+pip install -e .
+```
+
+## Quickstart (CLI)
 
 ![CLI Animation](docs/cli-demo.gif)
 
 ```sh
-csv-profiler cli data/data.csv -o outputs -f json
+csv-profiler cli data/data.csv
 ```
 
-or
+This generates the reports in `outputs/` by default:
+
+- `outputs/report.md`
+- `outputs/report.json`
+
+### Choose output directory
 
 ```sh
-python -m csv_profiler cli data/data.csv -o outputs -f json
+csv-profiler cli data/data.csv --out-dir output
 ```
 
-or
+### Choose output format
+
+Supported values for `--format` are: `md`, `json`, `both`.
 
 ```sh
-python -m csv_profiler.cli cli data.csv -o outputs -f json
+csv-profiler cli data/data.csv --format md
 ```
 
-## run Gradio Gui
+```sh
+csv-profiler cli data/data.csv --format json
+```
+
+```sh
+csv-profiler cli data/data.csv --format both
+```
+
+### Run via Python module
+
+```sh
+python -m csv_profiler cli data/data.csv
+```
+
+You can also call the CLI app module directly:
+
+```sh
+python -m csv_profiler.cli cli data/data.csv
+```
+
+## Web UI (Gradio)
 
 ```sh
 csv-profiler web
 ```
 
-or
+Or via module:
 
 ```sh
 python -m csv_profiler web
-
 ```
 
-or
+Or run the web module directly:
 
 ```sh
 python -m csv_profiler.webgui
 ```
+
+## Output
+
+- CLI output files are written as `report.md` and/or `report.json` inside the output directory.
+- Web UI prints the generated report content directly (Markdown or JSON).
+
+## License
+
+MIT. See [LICENSE](LICENSE).
