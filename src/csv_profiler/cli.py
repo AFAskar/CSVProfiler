@@ -47,20 +47,19 @@ def cli(
         md_path.write_text(md_text)
         json_path.write_text(json_text)
         print(f"[bold green]Reports generated:[/bold green] {md_path}, {json_path}")
-    if output_ext == "md":
+    elif output_ext == "md":
         md_path = output / "report.md"
         text = createMD(data)
         md_path.write_text(text)
         print(f"[bold green]Markdown report generated:[/bold green] {md_path}")
-    if output_ext == "json":
+    elif output_ext == "json":
         json_path = output / "report.json"
         text = createJsonReport(data)
         json_path.write_text(text)
         print(f"[bold green]JSON report generated:[/bold green] {json_path}")
-
     else:
         raise click.ClickException(
-            "Unsupported output file format. Please use 'md', 'json', or 'both'"
+            f"Unsupported output file format {format}. Please use 'md', 'json', or 'both'"
         )
 
     return
