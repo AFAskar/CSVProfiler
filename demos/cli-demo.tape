@@ -10,7 +10,7 @@ Set FontSize 16
 
 
 # Run the CLI
-Type "csv-profiler cli data/data.csv -o output/demo -f md"
+Type "csv-profiler cli data/data.csv -o output/demo -f both"
 Enter
 Sleep 2s
 
@@ -19,4 +19,5 @@ Type "ls output/demo/"
 Enter
 Sleep 2s
 
+# show the generate file with styling 
 Type 
