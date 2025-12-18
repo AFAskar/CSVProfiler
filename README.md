@@ -20,6 +20,8 @@ pip install git+https://github.com/afaskar/CSVProfiler.git
 csv-profiler cli data/data.csv -o outputs -f json
 ```
 
+or
+
 ```sh
 python -m csv_profiler cli data/data.csv -o outputs -f json
 ```
@@ -42,6 +44,8 @@ or
 python -m csv_profiler web
 
 ```
+
+or
 
 ```sh
 python -m csv_profiler.webgui
