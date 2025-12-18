@@ -12,7 +12,7 @@ Set FontSize 16
 # Run the CLI
 Type "csv-profiler cli data/data.csv -o output/demo -f both"
 Enter
-Sleep 2s
+Sleep 1s
 
 # Show generated files
 Type "ls output/demo/"
@@ -20,4 +20,6 @@ Enter
 Sleep 2s
 
 # show the generate file with styling 
-Type 
+Type "jq . output/demo/report.json"
+Enter
+Sleep 3s
