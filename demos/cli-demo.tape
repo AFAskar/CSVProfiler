@@ -1,6 +1,9 @@
 # Generate a small CLI demo GIF for README usage
 # Run via: vhs demos/cli-demo.tape
 
+Require jq
+Require less
+
 Output "docs/cli-demo.gif"
 
 # Keep the recording compact/readable
@@ -19,7 +22,15 @@ Type "ls output/demo/"
 Enter
 Sleep 2s
 
-# show the generate file with styling 
-Type "jq . output/demo/report.json"
+# show the generate file with styling (scroll)
+Type "jq . output/demo/report.json | less -SR"
 Enter
-Sleep 3s
+Sleep 1s
+
+PageDown 3
+Sleep 700ms
+PageDown 3
+Sleep 700ms
+
+Type "q"
+Sleep 500ms
