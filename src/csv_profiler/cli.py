@@ -9,6 +9,14 @@ app = typer.Typer()
 
 
 @app.command()
+def web():
+    """Launch the CSV Profiler web application."""
+    from .webgui import gui
+
+    gui()
+
+
+@app.command()
 def cli(
     input: Path = typer.Argument(..., exists=True, file_okay=True, dir_okay=False),
     output: Path | None = typer.Option(
